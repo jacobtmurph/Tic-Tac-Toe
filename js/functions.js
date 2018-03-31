@@ -179,22 +179,22 @@ const gameFuncs = (function(exports) {
             if (e.target.className == "box") {
                 //Mark it with o.svg
                 e.target.setAttribute("class", "box box-filled-1");
+
+                //If O wins
+                if(exports.checkIfWin()) {
+                    exports.displayOWin();
+                } else if (exports.checkIfTie()) {
+                    exports.displayTie();
+                } else {
+                //Else, take next turns
+                exports.playX();
+                };
             }  else if (e.target.className == "box box-filled-2") {
                 alert("You cannot marked an already marked box");
 
                 //Else, reset the turn
                 exports.playO();
             };
-
-            //If O wins
-            if(exports.checkIfWin()) {
-                exports.displayOWin();
-            } else if (exports.checkIfTie()) {
-                exports.displayTie();
-            } else {
-               //Else, take next turns
-               exports.playX();
-           };
         }, {once: true});
     };
 
@@ -221,21 +221,20 @@ const gameFuncs = (function(exports) {
                 //Mark it with x.svg
                 e.target.setAttribute("class", "box box-filled-2");
 
+                //If X wins.
+                if(exports.checkIfWin()) {
+                    exports.displayXWin();
+                } else if (exports.checkIfTie()) {
+                    exports.displayTie();
+                } else {
+                    //Else, take the next turn
+                    exports.playO();
+                };
             } else if (e.target.className == "box box-filled-1") {
                 alert("You cannot marked an already marked box");
 
                 //Else, reset the turn
                 exports.playX();
-            };
-
-            //If X wins.
-            if(exports.checkIfWin()) {
-                exports.displayXWin();
-            } else if (exports.checkIfTie()) {
-                exports.displayTie();
-            } else {
-                //Else, take the next turn
-                exports.playO();
             };
         }, {once: true});
     };
