@@ -186,10 +186,10 @@ const gameFuncs = (function(exports) {
                 } else if (exports.checkIfTie()) {
                     exports.displayTie();
                 } else {
-                //Else, take next turns
-                exports.playX();
+                    //Else, take next turns
+                    exports.playX();
                 };
-            }  else if (e.target.className == "box box-filled-2") {
+            }  else if (e.target.className == "box box-filled-2" || e.target.className == "box box-filled-1") {
                 alert("You cannot marked an already marked box");
 
                 //Else, reset the turn
@@ -230,7 +230,7 @@ const gameFuncs = (function(exports) {
                     //Else, take the next turn
                     exports.playO();
                 };
-            } else if (e.target.className == "box box-filled-1") {
+            } else if (e.target.className == "box box-filled-1" || e.target.className == "box box-filled-2") {
                 alert("You cannot marked an already marked box");
 
                 //Else, reset the turn
